@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #ffcf9b;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+#cookie {
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+#cookie:active {
+  transform: scale(0.9);
+}
+
+#score {
+  font-size: 2em;
+  margin: 20px 0;
+}
+
+.shop {
+  margin-top: 20px;
+  display:flex;
+  flex-direction: column;
+ 
+  position:absolute;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+img {
+ width: 300px;
+ 
+   
+}
+
+.shop button{
+  margin-right: 10px;
+}
+
+.shop div{
+  display: flex;
+  align-items: baseline;
+}
