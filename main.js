@@ -4,7 +4,8 @@ let fantalight = 1000;
 
 let autoClickers = 0;
 let autoClickerCost = 100;
-let clickpower = 1;
+let autoClickerCost2 = 100;
+var clickpower = 1;
 
 const scoreEl = document.getElementById("score");
 const cookieEl = document.getElementById("fanta");
@@ -18,7 +19,7 @@ const autoClickerCountE2 = document.getElementById("autoClickerCount2");
 
 // Klikken op cookie
 cookieEl.addEventListener("click", () => {
-  fantalight++;
+  fantalight = fantalight + clickpower;
   updateScore();
 });
 
@@ -39,15 +40,16 @@ buyAutoClickerBtn2.addEventListener("click", () => {
   console.log("Fantalight 2 waarde:" + fantalight);
   console.log("autoclickercostwaarde 2 waarde:" + autoClickerCost);
 
-  if (fantalight >= autoClickerCost) {
+  if (fantalight >= autoClickerCost2) {
   console.log("test")
+  
 
-    fantalight -= autoClickerCost;
-    clickpower++;
+    fantalight -= autoClickerCost2;
     console.log(fantalight)
-    
-    autoClickerCost = Math.floor(autoClickerCost * 1); // kosten stijgen
-    buyAutoClickerBtn2.textContent = `shower minutes (kosten: ${autoClickerCost})`;
+    clickpower++;
+    console.log(clickpower);
+    autoClickerCost2 = Math.floor(autoClickerCost2 * 1.5); // kosten stijgen
+    buyAutoClickerBtn2.textContent = `shower minutes (kosten: ${autoClickerCost2})`;
     updateScore();
     updateAutoClickers();
   }
