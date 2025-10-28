@@ -3,7 +3,9 @@ let fantalight = 1000;
 // let fantalight2 = 0;
 
 let autoClickers = 0;
+let autoClickers2 = 0;
 let autoClickerCost = 100;
+let autoClickerCosts = 100;
 let autoClickerCost2 = 100;
 var clickpower = 1;
 
@@ -13,6 +15,7 @@ const buyAutoClickerBtn = document.getElementById("buyAutoClicker");
 const autoClickerCountEl = document.getElementById("autoClickerCount");
 
 //2e autoclicker
+const scoreEs = document.getElementById("score");
 const cookieEs = document.getElementById("fanta");
 const buyAutoClickerBtns = document.getElementById("buyAutoClickers");
 const autoClickerCountEs = document.getElementById("autoClickerCounts");
@@ -24,6 +27,11 @@ const autoClickerCountE2 = document.getElementById("autoClickerCount2");
 
 // Klikken op cookie
 cookieEl.addEventListener("click", () => {
+  fantalight = fantalight + clickpower;
+  updateScore();
+});
+
+cookieEs.addEventListener("click", () => {
   fantalight = fantalight + clickpower;
   updateScore();
 });
@@ -41,13 +49,13 @@ buyAutoClickerBtn.addEventListener("click", () => {
   }
 });
 //2e autoclicker
-buyAutoClickerBtn.addEventListener("click", () => {
+buyAutoClickerBtns.addEventListener("click", () => {
 
-  if (fantalight >= autoClickerCost) {
-    fantalight -= autoClickerCost;
-    autoClickers = autoClickers + clickpower;
-    autoClickerCost = Math.floor(autoClickerCost * 1); // kosten stijgen
-    buyAutoClickerBtns.textContent = `Koop autoclicker (kosten: ${autoClickerCost})`;
+  if (fantalight >= autoClickerCosts) {
+    fantalight -= autoClickerCosts;
+    autoClickers2 = autoClickers2 + clickpower;
+    autoClickerCosts = Math.floor(autoClickerCosts * 1.5); // kosten stijgen
+    buyAutoClickerBtns.textContent = `Koop autoclicker (kosten: ${autoClickerCosts})`;
     updateScore();
     updateAutoClickers();
   }
@@ -66,7 +74,7 @@ buyAutoClickerBtn2.addEventListener("click", () => {
     console.log(fantalight)
     clickpower++;
     console.log(clickpower);
-    autoClickerCost2 = Math.floor(autoClickerCost2 * 1.5); // kosten stijgen
+    autoClickerCost2 = Math.floor(autoClickerCost2 * 1); // kosten stijgen
     buyAutoClickerBtn2.textContent = `shower minutes (kosten: ${autoClickerCost2})`;
     updateScore();
     updateAutoClickers();
@@ -76,15 +84,20 @@ buyAutoClickerBtn2.addEventListener("click", () => {
 // Autoclicker produceert cookies
 setInterval(() => {
   fantalight += autoClickers;
+  fantalight += autoClickers2;
   updateScore();
 }, 1000);
+
+
 
 // Helpers
 function updateScore() {
   scoreEl.textContent = `${fantalight} fantalight`;
+  scoreEs.textContent = `${fantalight} fantalight`;
 }
 
 function updateAutoClickers() {
   autoClickerCountEl.textContent = `Autoclickers: ${autoClickers}`;
-   autoClickerCountE2.textContent = `test: ${clickpower}`;
+  autoClickerCountEs.textContent = `Autoclickers: ${autoClickers2}`;
+    autoClickerCountE2.textContent = `test: ${clickpower}`;
 }
