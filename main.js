@@ -11,6 +11,11 @@ const scoreEl = document.getElementById("score");
 const cookieEl = document.getElementById("fanta");
 const buyAutoClickerBtn = document.getElementById("buyAutoClicker");
 const autoClickerCountEl = document.getElementById("autoClickerCount");
+
+//2e autoclicker
+const cookieEs = document.getElementById("fanta");
+const buyAutoClickerBtns = document.getElementById("buyAutoClickers");
+const autoClickerCountEs = document.getElementById("autoClickerCounts");
 // shower
 
 const cookieE2 = document.getElementById("fanta");
@@ -35,6 +40,19 @@ buyAutoClickerBtn.addEventListener("click", () => {
     updateAutoClickers();
   }
 });
+//2e autoclicker
+buyAutoClickerBtn.addEventListener("click", () => {
+
+  if (fantalight >= autoClickerCost) {
+    fantalight -= autoClickerCost;
+    autoClickers = autoClickers + clickpower;
+    autoClickerCost = Math.floor(autoClickerCost * 1); // kosten stijgen
+    buyAutoClickerBtns.textContent = `Koop autoclicker (kosten: ${autoClickerCost})`;
+    updateScore();
+    updateAutoClickers();
+  }
+});
+
 // shower 
 buyAutoClickerBtn2.addEventListener("click", () => {
   console.log("Fantalight 2 waarde:" + fantalight);
