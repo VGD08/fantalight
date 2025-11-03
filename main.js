@@ -22,19 +22,27 @@ class Autoclicker{
 }
 
 let clicker1 = new Autoclicker();
+clicker1.cost = 400;
 let clicker2 = new Autoclicker();
-clicker2.increase = 1.5;
+//clicker2.increase = 1.5;
+clicker2.cost = 750;
 let clicker3 = new Autoclicker();
+clicker3.cost = 1500;
 let clicker4 = new Autoclicker();
+clicker4.cost = 2000;
 let clicker5 = new Autoclicker();
+clicker5.cost = 2500;
 let clicker6 = new Autoclicker();
+clicker6.cost = 5000;
 let clicker7 = new Autoclicker();
+clicker7.cost = 30000;
 let clicker8 = new Autoclicker();
+clicker8.cost = 1000000;
 // let autoClickers = 0;
 // let autoClickers2 = 0;
 // let autoClickerCost = 100;
 // let autoClickerCosts = 100;
-let clickercost = 100;
+
 var clickpower = 1;
 
 const scoreEl = document.getElementById("score");
@@ -65,10 +73,8 @@ const autoClickerCount7 = document.getElementById("Clicker7count")
 //8e autoclicker
 const buyAutoClickerBtn8 = document.getElementById("buyClicker8")
 const autoClickerCount8 = document.getElementById("Clicker8count")
-// shower
-const cookieE2 = document.getElementById("fanta");
-const buyAutoClickerBtn2 = document.getElementById("buyAutoClicker2");
-const autoClickerCountE2 = document.getElementById("autoClickerCount2");
+
+
 
 // Klikken op cookie
 cookieEl.addEventListener("click", () => {
@@ -132,24 +138,7 @@ clicker8.bindButton(buyAutoClickerBtn8);
 // bindButton(buyAutoClickerBtns, clicker2, 1.5);
 
 // shower 
-buyAutoClickerBtn2.addEventListener("click", () => {
-  console.log("Fantalight 2 waarde:" + fantalight);
-  console.log("autoclickercostwaarde 2 waarde:" + clicker1.cost);
 
-  if (fantalight >= clickercost) {
-  console.log("test")
-  
-
-    fantalight -= clickercost;
-    console.log(fantalight)
-    clickpower++;
-    console.log(clickpower);
-    clickercost = Math.floor(clickercost * 1); // kosten stijgen
-    buyAutoClickerBtn2.textContent = `shower minutes (kosten: ${clickercost})`;
-    updateScore();
-    updateAutoClickers();
-  }
-});
 
 // Autoclicker produceert cookies
 setInterval(() => {
@@ -181,5 +170,5 @@ function updateAutoClickers() {
   autoClickerCount6.textContent = `Autoclickers: ${clicker6.count}`;
   autoClickerCount7.textContent = `Autoclickers: ${clicker7.count}`;
   autoClickerCount8.textContent = `Autoclickers: ${clicker8.count}`;
-    autoClickerCountE2.textContent = `test: ${clickpower}`;
+  
 }
