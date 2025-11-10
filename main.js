@@ -1,10 +1,17 @@
 // Variabelen
-let fantalight = 1000;
+let fantalight = 1000000;
 // let fantalight2 = 0;
 class Autoclicker{
   count = 0;
   cost = 100;
   increase = 1;
+  buttontext = "";
+
+  constructor( newincrease, newcost, newbuttontext){
+    this.increase = newincrease;
+    this.cost = newcost;
+    this.buttontext = newbuttontext;
+  }
 
   
   bindButton(whichButton){
@@ -13,7 +20,7 @@ class Autoclicker{
         fantalight -= this.cost;
         this.count = this.count + clickpower;
         this.cost = Math.floor(this.cost * this.increase); // kosten stijgen
-        whichButton.textContent = `Koop autoclicker (kosten: ${this.cost})`;
+        whichButton.textContent = this.buttontext +` (kosten: ${this.cost})`;
         updateScore();
         updateAutoClickers();
       }
@@ -21,23 +28,45 @@ class Autoclicker{
   }
 }
 
-let clicker1 = new Autoclicker();
-clicker1.cost = 400;
-let clicker2 = new Autoclicker();
-//clicker2.increase = 1.5;
-clicker2.cost = 750;
-let clicker3 = new Autoclicker();
-clicker3.cost = 1500;
-let clicker4 = new Autoclicker();
-clicker4.cost = 2000;
-let clicker5 = new Autoclicker();
-clicker5.cost = 2500;
-let clicker6 = new Autoclicker();
-clicker6.cost = 5000;
-let clicker7 = new Autoclicker();
-clicker7.cost = 30000;
-let clicker8 = new Autoclicker();
-clicker8.cost = 1000000;
+let clicker1 = new Autoclicker(1.2, 400, "buy tea");
+// clicker1.increase = 1.2;
+// clicker1.cost = 400;
+// clicker1.buttontext = "Buy Tea";
+
+let clicker2 = new Autoclicker(1.2, 750, "buy crisps");
+// clicker2.increase = 1.2;
+// clicker2.cost = 750;
+// clicker2.buttontext = "buy Crisps";
+
+let clicker3 = new Autoclicker(1.2, 150, "buy sandwitch");
+// clicker3.increase  = 1.2;
+// clicker3.cost = 1500;
+// clicker3.buttontext = "buy Sandwitch";
+
+let clicker4 = new Autoclicker(1.2, 2000, "buy Token");
+// clicker4.increase = 1.2;
+// clicker4.cost = 2000;
+// clicker4.buttontext = "buy Token";
+
+let clicker5 = new Autoclicker(1.2, 2500, "buy Festabels");
+// clicker5.increase = 1.2;
+// clicker5.cost = 2500;
+// // clicker5.buttontext = "buy Festabels";
+
+let clicker6 = new Autoclicker(1.2, 5000, "buy Meal-upgrade");
+// clicker6.increase = 1.2;
+// clicker6.cost = 5000;
+// clicker6.buttontext = "buy Meal-upgrade";
+
+let clicker7 = new Autoclicker(1.2, 30000, "buy Temptation");
+// clicker7.increase = 1.2;
+// clicker7.cost = 30000;
+// clicker7.buttontext = "buy Tempation";
+
+let clicker8 = new Autoclicker(1.2, 1000000, "buy Fantalight");
+// clicker8.increase = 1.2;
+// clicker8.cost = 1000000;
+// clicker8.buttontext = "buy Fantalight";
 // let autoClickers = 0;
 // let autoClickers2 = 0;
 // let autoClickerCost = 100;
@@ -162,13 +191,13 @@ function updateScore() {
 }
 
 function updateAutoClickers() {
-  autoClickerCountEl.textContent = `Autoclickers: ${clicker1.count}`;
-  autoClickerCountEs.textContent = `Autoclickers: ${clicker2.count}`;
-  autoClickerCount3.textContent = `Autoclickers: ${clicker3.count}`;
-  autoClickerCount4.textContent = `Autoclickers: ${clicker4.count}`;
-  autoClickerCount5.textContent = `Autoclickers: ${clicker5.count}`;
-  autoClickerCount6.textContent = `Autoclickers: ${clicker6.count}`;
-  autoClickerCount7.textContent = `Autoclickers: ${clicker7.count}`;
-  autoClickerCount8.textContent = `Autoclickers: ${clicker8.count}`;
+  autoClickerCountEl.textContent = `Tea: ${clicker1.count}`;
+  autoClickerCountEs.textContent = `Monster-munch Crisps: ${clicker2.count}`;
+  autoClickerCount3.textContent = `Egg & ClispsSandwich: ${clicker3.count}`;
+  autoClickerCount4.textContent = `Assit Token: ${clicker4.count}`;
+  autoClickerCount5.textContent = `MR. Beast festabels: ${clicker5.count}`;
+  autoClickerCount6.textContent = `Meal-upgrade: ${clicker6.count}`;
+  autoClickerCount7.textContent = `Temptation room: ${clicker7.count}`;
+  autoClickerCount8.textContent = `Fantalight: ${clicker8.count}`;
   
 }
