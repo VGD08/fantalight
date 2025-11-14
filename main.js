@@ -1,5 +1,15 @@
 // Variabelen
-let fantalight = 1000000;
+//Controleer of er een fantalight waarde in de local storage zit, zo ja, dan is fantalight = de waarde in de storage.
+//zo niet, dan is de fantalight een x waarde die jij default instelt
+if(localStorage.getItem("fantalight") !== null){
+  fantalight = localStorage.getItem("fantalight");
+  console.log("Fantalight waarde:" + typeof fantalight + " " +  fantalight)
+}else{
+  let fantalight = 1000000;
+  
+}
+
+
 // let fantalight2 = 0;
 class Autoclicker{
   count = 0;
@@ -194,7 +204,9 @@ setInterval(() => {
 function updateScore() {
   scoreEl.textContent = `${fantalight} fantalight`;
   scoreEs.textContent = `${fantalight} fantalight`;
-  // localStorage.setItem(updateScore)
+  console.log(fantalight);
+  localStorage.setItem("fantalight", (fantalight) )
+
   // localStorage.getItem(updateScore)
 }
 
